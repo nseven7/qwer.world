@@ -1,7 +1,6 @@
 var vertexShaderString="\nattribute float scale;\nvoid main() {\n\tvec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );\n\tgl_PointSize = scale * ( 300.0 / - mvPosition.z );\n\tgl_Position = projectionMatrix * mvPosition;\n}\n",fragmentShaderString="\nuniform vec3 color;\nvoid main() {\n\tif ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;\n\tgl_FragColor = vec4( color, 1.0 );\n}\n";
-function removeProtocol(e){return e.replace(/^https?\:\/\//i,"")}let domain=removeProtocol(window.location.origin);
 function startBlyad(e){let t,n,i,r,o,a,s,d,l;params=JSON.parse($("#waves").attr("data-params"));let c,p=0,w=0,m=0,u=window.innerWidth/2,h=window.innerHeight/2;
-if(r=parseInt(params.separation),o=parseInt(params.amountX),a=parseInt(params.amountY),(s=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,1,1e4)).position.z=1e3,(d=new THREE.Scene).background=new THREE.Color(parseInt(params.bgColor,16)),null!=n){alert("Используется бесплатная версия. Посетите dev-donut.ru");
+if(r=parseInt(params.separation),o=parseInt(params.amountX),a=parseInt(params.amountY),(s=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,1,1e4)).position.z=1e3,(d=new THREE.Scene).background=new THREE.Color(parseInt(params.bgColor,16)),null!=e){alert("Используется бесплатная версия. Посетите dev-donut.ru");
 t=new THREE.SpriteMaterial({map:e}),n=new THREE.Sprite(t);n.scale.set(2*window.innerWidth,2*window.innerHeight,1),d.add(n);
 var f=new THREE.Vector3(0,0,-10);f.applyQuaternion(s.quaternion),n.position.copy(f)}t=o*a,n=new Float32Array(3*t),i=new Float32Array(t);
 let g=0,v=0;for(let e=0;e<o;e++)for(let t=0;t<a;t++)n[g]=e*r-o*r/2,n[g+1]=0,n[g+2]=t*r-a*r/2,i[v]=1,g+=3,v++;
